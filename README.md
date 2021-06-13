@@ -1,8 +1,9 @@
-# Omniauth::Ekuaishou
+[![Gem Version](https://badge.fury.io/rb/omniauth-ekuaishou.svg)](https://badge.fury.io/rb/omniauth-ekuaishou)
+[![Build Status](https://github.com/jinhucheung/omniauth-ekuaishou/actions/workflows/main.yml/badge.svg)](https:/github.com/jinhucheung/omniauth-ekuaishou/actions)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/omniauth/ekuaishou`. To experiment with that code, run `bin/console` for an interactive prompt.
+# Omniauth Ekuaishou
 
-TODO: Delete this and the text above, and describe your gem
+This is the official OmniAuth strategy for authenticating to Kuaishou Marketing. To use it, you'll need to sign up for an OAuth2 Application ID and Secret on the [Kuaishou Marketing Applications Page](https://developers.e.kuaishou.com/application).
 
 ## Installation
 
@@ -14,26 +15,31 @@ gem 'omniauth-ekuaishou'
 
 And then execute:
 
-    $ bundle install
+```
+$ bundle install
+```
 
 Or install it yourself as:
 
-    $ gem install omniauth-ekuaishou
+```
+$ gem install omniauth-ekuaishou
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+`OmniAuth::Strategies::Ekuaishou` is simply a Rack middleware. Read the OmniAuth docs for detailed instructions: https://github.com/intridea/omniauth.
 
-## Development
+Here's a quick example, adding the middleware to a Rails app in `config/initializers/omniauth.rb`:
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```ruby
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider :ekuaishou, ENV['EKUAISHOU_APP_ID'], ENV['EKUAISHOU_APP_SECRET']
+end
+```
 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/jinhucheung/omniauth-ekuaishou.
-
 
 ## License
 

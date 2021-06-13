@@ -15,9 +15,9 @@ module OmniAuth
 
       info do
         {
-          'advertiser_id': access_token['advertiser_id'],
+          'advertiser_id':  access_token['advertiser_id'],
           'advertiser_ids': access_token['advertiser_ids'],
-          'user_id': raw_info['raw_info'],
+          'user_id': raw_info['user_id'],
           'user_name': raw_info['user_name'],
           'corporation_name': raw_info['corporation_name'],
           'industry_id': raw_info['industry_id'],
@@ -38,7 +38,6 @@ module OmniAuth
       def scope
         access_token['scope']
       end
-
     end
   end
 end

@@ -1,8 +1,8 @@
-require_relative 'lib/omniauth/ekuaishou/version'
+require_relative 'lib/omniauth-ekuaishou/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "omniauth-ekuaishou"
-  spec.version       = Omniauth::Ekuaishou::VERSION
+  spec.version       = OmniAuth::Ekuaishou::VERSION
   spec.authors       = ["jimcheung"]
   spec.email         = ["hi.jinhu.zhang@gmail.com"]
 
