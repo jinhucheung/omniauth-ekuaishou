@@ -26,13 +26,13 @@ module OmniAuth
 
       info do
         access_token.to_h.slice('advertiser_id', 'advertiser_ids').merge(raw_info.slice(
-            'user_id',
-            'user_name',
-            'corporation_name',
-            'industry_id',
-            'industry_name',
-            'primary_industry_id',
-            'primary_industry_name'
+          'user_id',
+          'user_name',
+          'corporation_name',
+          'industry_id',
+          'industry_name',
+          'primary_industry_id',
+          'primary_industry_name'
         ))
       end
 
@@ -46,7 +46,7 @@ module OmniAuth
 
       def raw_info
         @raw_info ||= begin
-          resp = client.request(:get, "#{options.client_options[:site]}/rest/openapi/v1/advertiser/info", headers: headers, body: { advertiser_id: access_token['advertiser_id'] })
+          resp = client.request(:get, "#{options.client_options[:site]}/rest/openapi/v1/advertiser/info", headers: headers, body: access_token.to_h.slice('advertiser_id'))
           JSON.parse(resp.body)['data'] rescue {}
         end
       end
