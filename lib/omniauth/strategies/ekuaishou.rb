@@ -56,7 +56,7 @@ module OmniAuth
 
       def raw_info
         @raw_info ||= begin
-          resp = client.request(:get, "#{options.client_options[:site]}/rest/openapi/v1/advertiser/info", headers: headers, body: access_token.to_h.slice('advertiser_id'))
+          resp = client.request(:get, "#{options.client_options[:site]}/rest/openapi/v1/advertiser/info", headers: headers, body: access_token.to_hash.slice('advertiser_id'))
           JSON.parse(resp.body)['data'] rescue {}
         end
       end
