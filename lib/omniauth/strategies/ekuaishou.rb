@@ -35,7 +35,7 @@ module OmniAuth
       uid { access_token['advertiser_id'] }
 
       info do
-        access_token.to_h.slice('advertiser_id', 'advertiser_ids').merge(raw_info.slice(
+        access_token.to_hash.slice('advertiser_id', 'advertiser_ids').merge(raw_info.slice(
           'user_id',
           'user_name',
           'corporation_name',

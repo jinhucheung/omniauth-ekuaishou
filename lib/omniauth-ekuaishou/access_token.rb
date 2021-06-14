@@ -10,10 +10,6 @@ module OmniAuth
           ))
         end
       end
-
-      def to_h
-        params
-      end
     end
   end
 end
