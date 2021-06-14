@@ -10,8 +10,18 @@ module OmniAuth
         extract_access_token: ::OmniAuth::Ekuaishou::AccessToken
       }
 
+      option :authorize_options, %i[app_id scope state]
+
       def authorize_params
         super.tap do |params|
+          params[:app_id] = options.client_id if params[:app_id].blank?
+
+          if params[:scope].present?
+            scope = params[:scope]
+            scope = JSON.parse(params[:scope]) && params[:scope] rescue params[:scope].split(',') if scope.is_a?(String)
+            params[:scope] = scope.is_a?(Array) ? scope.to_json : scope
+          end
+
           %w[scope client_options].each do |v|
             if request.params[v]
               params[v.to_sym] = request.params[v]
