@@ -14,9 +14,9 @@ module OmniAuth
 
       def authorize_params
         super.tap do |params|
-          params[:app_id] = options.client_id if params[:app_id].blank?
+          params[:app_id] = options.client_id if params[:app_id].to_s.strip.empty?
 
-          if params[:scope].present?
+          if params[:scope]
             scope = params[:scope]
             scope = JSON.parse(params[:scope]) && params[:scope] rescue params[:scope].split(',') if scope.is_a?(String)
             params[:scope] = scope.is_a?(Array) ? scope.to_json : scope
@@ -51,7 +51,7 @@ module OmniAuth
         hash["refresh_token"] = access_token.refresh_token if access_token.expires? && access_token.refresh_token
         hash["expires_at"] = access_token.expires_at if access_token.expires?
         hash["expires"] = access_token.expires?
-        hash["refresh_token_expires_at"] = access_token['refresh_token_expires_at'] if access_token['refresh_token_expires_at'].present?
+        hash["refresh_token_expires_at"] = access_token['refresh_token_expires_at'] if access_token['refresh_token_expires_at']
         hash
       end
 
