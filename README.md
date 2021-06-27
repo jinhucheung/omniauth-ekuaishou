@@ -1,5 +1,5 @@
 [![Gem Version](https://badge.fury.io/rb/omniauth-ekuaishou.svg)](https://badge.fury.io/rb/omniauth-ekuaishou)
-[![Build Status](https://github.com/jinhucheung/omniauth-ekuaishou/actions/workflows/main.yml/badge.svg)](https:/github.com/jinhucheung/omniauth-ekuaishou/actions)
+[![Build Status](https://github.com/jinhucheung/omniauth-ekuaishou/actions/workflows/main.yml/badge.svg)](https://github.com/jinhucheung/omniauth-ekuaishou/actions)
 
 # Omniauth Ekuaishou
 
