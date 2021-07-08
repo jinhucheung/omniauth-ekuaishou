@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    omniauth-ekuaishou (0.4.0)
+    omniauth-ekuaishou (0.5.0)
       omniauth (~> 2.0)
       omniauth-oauth2 (~> 1.7.1)
 

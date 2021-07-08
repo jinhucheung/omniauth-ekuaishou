@@ -10,7 +10,7 @@ module OmniAuth
         extract_access_token: ::OmniAuth::Ekuaishou::AccessToken
       }
 
-      option :authorize_options, %i[app_id scope state]
+      option :authorize_options, %i[app_id oauth_type scope state]
 
       def authorize_params
         super.tap do |params|
